@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import "tailwindcss";
+@theme {
+  /* Apply the CSS variable to the root */
+  --font-noto: "Noto Sans", sans-serif;
+  --font-robot: "Roboto Condensed", sans-serif;
+}

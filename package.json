@@ -1,0 +1,29 @@
+{
+  "name": "thevoicesfrontend",
+  "version": "1.0.0",
+  "description": "Its basically Chat are we cooked.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "lain calderon",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^15.3.5",
+    "pg": "^8.16.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "unplugin-fonts": "^1.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "24.0.10",
+    "@types/react": "19.1.8",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "5.8.3"
+  }
+}

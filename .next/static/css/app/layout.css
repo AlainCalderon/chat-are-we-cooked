@@ -226,11 +226,8 @@
   .inline-block {
     display: inline-block;
   }
-  .h-full {
-    height: 100%;
-  }
-  .h-max {
-    height: max-content;
+  .table {
+    display: table;
   }
   .h-screen {
     height: 100vh;
@@ -261,9 +258,6 @@
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .grid-cols-8 {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
   .grid-cols-10 {
     grid-template-columns: repeat(10, minmax(0, 1fr));

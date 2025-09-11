@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import noFace from "../../../public/images/login-banner.gif";
+import { loginUser } from "@lib/serverActions";
 export default function Login() {
   return (
     <>
@@ -25,7 +26,7 @@ export default function Login() {
         </ul>
 
         <div className="flex flex-col mx-6">
-          <form action="" method="post" className="flex flex-row">
+          <form action={loginUser} method="post" className="flex flex-row">
             <div className="basis-1/2">
               <label htmlFor="userName" className="text-[18px]  block m-2">
                 Username*

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import noFace from "@images/login-banner.gif";
+import { createUser } from "@lib/serverActions";
 export default function Signup() {
   return (
     <>
       <div className="basis-6/10 h-screen place-content-center">
         <Image className="m-auto border border-solid" src={noFace} alt="No face No case"></Image>
       </div>
-
       <div className="basis-4/10 bg-black">
         {/* login sign up nav */}
         <ul className="list-disc text-[58px] my-4 ">
@@ -24,9 +24,9 @@ export default function Signup() {
             <Link href="/sign-up">Sign Up</Link>
           </li>
         </ul>
-
+          {/* form element */}
         <div className="flex flex-col mx-6">
-          <form action="" method="post" className="flex flex-row">
+          <form action={createUser} method="post" className="flex flex-row">
             <div className="basis-1/2">
               <label htmlFor="userName" className="text-[18px]  block m-2">
                 Username*

@@ -6,7 +6,11 @@ export default function Signup() {
   return (
     <>
       <div className="basis-6/10 h-screen place-content-center">
-        <Image className="m-auto border border-solid" src={noFace} alt="No face No case"></Image>
+        <Image
+          className="m-auto border border-solid"
+          src={noFace}
+          alt="No face No case"
+        ></Image>
       </div>
       <div className="basis-4/10 bg-black">
         {/* login sign up nav */}
@@ -24,9 +28,9 @@ export default function Signup() {
             <Link href="/sign-up">Sign Up</Link>
           </li>
         </ul>
-          {/* form element */}
+        {/* form element */}
         <div className="flex flex-col mx-6">
-          <form action={createUser} method="post" className="flex flex-row">
+          <form id="signUp" action={createUser} className="flex flex-row">
             <div className="basis-1/2">
               <label htmlFor="userName" className="text-[18px]  block m-2">
                 Username*
@@ -56,7 +60,7 @@ export default function Signup() {
                 Password*
               </label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 className=" text-[24px] border-1 border-solid rounded-md p-2 w-9/10"
                 required
@@ -74,7 +78,9 @@ export default function Signup() {
               />
             </div>
           </form>
+
           <button
+            form="signUp"
             className="text-[24px] p-4 bg-white hover:bg-neutral-300 text-black rounded-md my-6 w-auto"
             type="submit"
           >

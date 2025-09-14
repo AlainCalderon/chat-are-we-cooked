@@ -19,14 +19,16 @@ export default function Login() {
           <li className="inline-block mx-8">
             <Link href="/sign-up">
               {" "}
-              <span className="text-neutral-700 hover:text-neutral-300">   Sign Up </span>
-            
+              <span className="text-neutral-700 hover:text-neutral-300">
+                {" "}
+                Sign Up{" "}
+              </span>
             </Link>
           </li>
         </ul>
 
         <div className="flex flex-col mx-6">
-          <form action={loginUser} method="post" className="flex flex-row">
+          <form id="logIn" action={loginUser} className="flex flex-row">
             <div className="basis-1/2">
               <label htmlFor="userName" className="text-[18px]  block m-2">
                 Username*
@@ -46,7 +48,7 @@ export default function Login() {
                 Password*
               </label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 className=" text-[24px] border-1 border-solid rounded-md p-2 w-9/10"
                 required
@@ -55,6 +57,7 @@ export default function Login() {
             </div>
           </form>
           <button
+            form="logIn"
             className="text-[24px] p-4 bg-white hover:bg-neutral-300 text-black rounded-md my-6 w-auto"
             type="submit"
           >

@@ -24,8 +24,9 @@ export async function createUser(formData: FormData) {
         },
       },
     });
-    if(!error){
-      console.log("Successful signup")
+    if (!error) {
+      console.log(`Data object : ${JSON.stringify(data)}`);
+      console.log("Successful signup");
     }
   }
 }
@@ -42,8 +43,9 @@ export async function loginUser(formData: FormData) {
       email: userData.data.username,
       password: userData.data.password,
     });
-    if(!error){
-        console.log("Successful signup")
+    if (!error) {
+      console.log(`Data object : ${JSON.stringify(data)}`);
+      console.log("Successful signup");
     }
   }
 }

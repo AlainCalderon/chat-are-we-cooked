@@ -4,9 +4,10 @@ import { SignupFormSchema, LoginSchema } from "@lib/schema";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const supabase = await createClient();
+
 
 export async function isLoggedIn(){
+  const supabase = await createClient();
   const {data,error} = await supabase.auth.getUser();
   if(error || !data?.user){
     return false;
@@ -16,6 +17,7 @@ export async function isLoggedIn(){
 
 /* User related table functions */
 export async function createUser(formData: FormData) {
+  const supabase = await createClient();
   const userDataValidation = SignupFormSchema.safeParse({
     username: formData.get("userName"),
     password: formData.get("password"),
@@ -49,6 +51,7 @@ export async function createUser(formData: FormData) {
 }
 
 export async function loginUser(formData: FormData) {
+  const supabase = await createClient();
   const userData = LoginSchema.safeParse({
     username: formData.get("userName"),
     password: formData.get("password"),
@@ -70,6 +73,7 @@ export async function loginUser(formData: FormData) {
 }
 
 export async function signOut() {
+  const supabase = await createClient();
   const { error } = await supabase.auth.signOut()
 }
 

@@ -3,6 +3,6 @@
   "/page": "app/page.js",
   "/[profile]/page": "app/[profile]/page.js",
   "/journal/page": "app/journal/page.js",
-  "/log-in/page": "app/log-in/page.js",
-  "/sign-up/page": "app/sign-up/page.js"
+  "/sign-up/page": "app/sign-up/page.js",
+  "/log-in/page": "app/log-in/page.js"
 }

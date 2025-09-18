@@ -1,11 +1,20 @@
+import { createClient } from "@supaORM/server";
+import { redirect } from "next/navigation";
+export default async function Journal() {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    redirect("/login");
+  }
 
-"use client"
-export default function Journal(){
-    
-    return(
-        // conditional component. If user journals are empty show "Currently no journals" else list journals in a card format ( see inspo page )
-        <>
-            <div><h1>Journals</h1></div>
-        </>
-    )
+  
+
+  return (
+    // conditional component. If user journals are empty show "Currently no journals" else list journals in a card format ( see inspo page )
+    <>
+      <div>
+        <h1>Journals</h1>
+      </div>
+    </>
+  );
 }

@@ -46,3 +46,8 @@ export type FormState =
       message?: string;
     }
   | undefined;
+
+  export const JournalSchema = z.object({
+    title:z.string(),
+    entry:z.string()
+  })

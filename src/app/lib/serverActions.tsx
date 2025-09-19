@@ -23,7 +23,7 @@ export async function createUser(formData: FormData) {
     lastname: formData.get("lastName"),
   });
 
-  if (!userDataValidation.success) {
+  if (userDataValidation.error) {
     userDataValidation.error;
   } else {
     const { data, error } = await supabase.auth.signUp({

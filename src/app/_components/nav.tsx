@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { isLoggedIn } from "@lib/serverActions";
+import { isLoggedIn , signOut} from "@lib/serverActions";
 export default async function Nav() {
   let isUserLogged = await isLoggedIn();
 
@@ -7,7 +7,7 @@ export default async function Nav() {
     return (
       <div className="grid grid-cols-2 mx-14  bg-black w-full">
         <nav className="cols-span-8">
-          <Link href="/sign-out">Sign out</Link>
+          <button onClick={signOut}>Sign out</button>
           {/* <Link href="/[profile]/edit">Profile</Link> //   current logged in user add conditional rendering */}
         </nav>
       </div>

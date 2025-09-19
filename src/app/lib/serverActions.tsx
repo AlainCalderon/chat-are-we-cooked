@@ -23,8 +23,8 @@ export async function createUser(formData: FormData) {
     lastname: formData.get("lastName"),
   });
 
-  if (userDataValidation.error) {
-    userDataValidation.error;
+  if (!userDataValidation.success) {
+    console.log(userDataValidation.error);
   } else {
     const { data, error } = await supabase.auth.signUp({
       email: userDataValidation.data.username,
@@ -41,8 +41,7 @@ export async function createUser(formData: FormData) {
       console.log(`Data object : ${JSON.stringify(data)}`);
       console.log("Successful signup");
       revalidatePath("/", "layout");
-      window.alert("Successful sign up");
-      redirect("/login");
+      redirect("/");
     }
   }
 }
@@ -63,7 +62,7 @@ export async function loginUser(formData: FormData) {
     if (!error) {
       console.log(`Data object : ${JSON.stringify(data)}`);
       revalidatePath("/", "layout");
-      window.alert("Successful login");
+      console.log("Successful login");
       redirect("/");
     }
   }
@@ -72,6 +71,7 @@ export async function loginUser(formData: FormData) {
 export async function signOut() {
   const supabase = await createClient();
   const { error } = await supabase.auth.signOut();
+  redirect("/");
 }
 
 /* Journal related table function */

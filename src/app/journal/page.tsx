@@ -1,7 +1,11 @@
 import { createClient } from "@supaORM/server";
 import { redirect } from "next/navigation";
 import { fetchJournals } from "@lib/serverActions";
+
+import JournalModal from "@components/journalModal";
+
 export default async function Journal() {
+  // user checking
   const supabase = await createClient();
   const userJournals = await fetchJournals();
   const { data, error } = await supabase.auth.getUser();
@@ -9,11 +13,18 @@ export default async function Journal() {
     redirect("/login");
   }
 
-  if (!userJournals) {
+  let journals = userJournals.data;
+
+  console.log(userJournals);
+
+  if (journals!.length < 1) {
     return (
       <>
-        <div>
-          <h2>You currently have no journals</h2>
+        <div className="grid col-span-10">
+          <h2 className="col-span-4 col-start-5 ">
+            You currently have no journals
+          </h2>
+          <JournalModal />
         </div>
       </>
     );
@@ -24,6 +35,7 @@ export default async function Journal() {
     <>
       <div>
         <h1>Journals</h1>
+        <JournalModal />
       </div>
     </>
   );

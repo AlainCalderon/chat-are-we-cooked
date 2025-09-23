@@ -41,7 +41,7 @@ export async function createUser(formData: FormData) {
       console.log(`Data object : ${JSON.stringify(data)}`);
       console.log("Successful signup");
       revalidatePath("/", "layout");
-      redirect("/");
+      redirect("/journal");
     }
   }
 }
@@ -63,7 +63,7 @@ export async function loginUser(formData: FormData) {
       console.log(`Data object : ${JSON.stringify(data)}`);
       revalidatePath("/", "layout");
       console.log("Successful login");
-      redirect("/");
+      redirect("/journal");
     }
   }
 }
@@ -103,8 +103,6 @@ export async function fetchJournals() {
     .select()
     .eq("user_id", `${userData.data.user?.id}`);
 
-  if (error) {
-    return console.log(error);
-  }
-  return data;
+    return {data , error}
+
 }

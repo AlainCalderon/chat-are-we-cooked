@@ -7,4 +7,7 @@
   /* Apply the CSS variable to the root */
   --font-noto: "Noto Sans", sans-serif;
   --font-robot: "Roboto Condensed", sans-serif;
+  --color-notebook: #d1d5db;
+  --color-paper: #fdfcf7;
+
 }

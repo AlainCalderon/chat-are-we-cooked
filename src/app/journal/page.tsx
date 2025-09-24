@@ -1,6 +1,7 @@
 import { createClient } from "@supaORM/server";
 import { redirect } from "next/navigation";
 import { fetchJournals } from "@lib/serverActions";
+import { createJournal } from "@lib/serverActions";
 
 import JournalModal from "@components/journalModal";
 
@@ -10,13 +11,10 @@ export default async function Journal() {
   const userJournals = await fetchJournals();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data?.user) {
-    redirect("/login");
+    redirect("/log-in");
   }
-
   let journals = userJournals.data;
-
   console.log(userJournals);
-
   if (journals!.length < 1) {
     return (
       <>

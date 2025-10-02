@@ -4,10 +4,11 @@ export default function JournalLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // public\images\1725308238042220.jpg
   return (
     <>
       <Nav />
-      <div className="grid grid-cols-10">{children}</div>
+      <div className="overflow-hidden bg-[url(../../public/images/1725308238042220.jpg)] backdrop-blur-sm size-full">{children}</div>
     </>
   );
 }

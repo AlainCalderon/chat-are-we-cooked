@@ -3,6 +3,9 @@ export interface User {
 }
 
 export interface Journal {
+    id:string;
     title:string;
     entry:string;
 }
+
+

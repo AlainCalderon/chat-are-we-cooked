@@ -89,15 +89,13 @@ export async function createJournal(formData: FormData) {
   if (!journalData.success) {
     console.log(journalData.error);
   } else {
-    const { data, error } = await supabase
-      .from("Journal")
-      .insert({
-        title: journalData.data?.title,
-        user_entry: journalData.data?.entry,
-        user_id: userData.data.user?.id,
-      })
-      .select();
-    console.log(data);
+    const { error } = await supabase.from("Journal").insert({
+      title: journalData.data?.title,
+      user_entry: journalData.data?.entry,
+      user_id: userData.data.user?.id,
+    });
+
+    redirect("/journal");
   }
 }
 
@@ -106,8 +104,18 @@ export async function fetchJournals() {
   const userData = await supabase.auth.getUser();
   const { data, error } = await supabase
     .from("Journal")
-    .select()
+    .select(`id,title,created_at`)
     .eq("user_id", `${userData.data.user?.id}`);
 
+  return { data, error };
+}
+
+export async function fetchJournalEntry(journalID: string) {
+  const supabase = await createClient();
+  const currentUser = await supabase.auth.getUser();
+  const { data, error } = await supabase
+    .from("Journal")
+    .select()
+    .eq("id", `${journalID}`);
   return { data, error };
 }

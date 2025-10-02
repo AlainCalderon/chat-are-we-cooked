@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogPanel,
   DialogTitle,
+  Textarea
 } from "@headlessui/react";
 import { useState } from "react";
 import { createJournal } from "@lib/serverActions";
@@ -15,7 +16,7 @@ export default function JournalModal() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="bg-stone-500 col-start-10"
+        className="col-start-10"
       >
         Create an entry
       </button>
@@ -63,12 +64,12 @@ export default function JournalModal() {
                   className="border-b-2 border-stone-500 mb-4 bg-transparent focus:outline-none"
                   placeholder="Journal title"
                 />
-                <textarea
+                <Textarea
                   id="journal-entry"
                   name="journal-entry"
                   className="border-2 border-stone-500 flex-grow bg-transparent focus:outline-none"
                   placeholder="Start writing..."
-                ></textarea>
+                ></Textarea>
               </form>
               <div className="flex gap-4">
                 <button onClick={() => setOpen(false)}>Cancel</button>

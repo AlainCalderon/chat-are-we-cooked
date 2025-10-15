@@ -1,4 +1,6 @@
-# chat-are-we-cooked
+# chat-are-we-cooked.
+
+
 ## Pet project exploring nextJS and AI chatbots 
 - Uses **SupaBase** ( Postgre ORM) for db and authentication functionality
 - Deployed using **vercel**

@@ -1,19 +1,18 @@
 {
   "compilerOptions": {
-    "baseUrl":".",
-    "paths":{
-      "@public/*":["public/*"],
-      "@images/*":["public/images/*"],
-      "@components/*":["src/app/_components/*"],
-      "@lib/*":["src/app/lib/*"],
-      "@supaORM/*":["src/utils/supabase/*"],
+    "baseUrl": ".",
+    "paths": {
+      "@public/*": ["public/*"],
+      "@images/*": ["public/images/*"],
+      "@components/*": ["src/app/_components/*"],
+      "@lib/*": ["src/app/lib/*"],
+      "@supaORM/*": ["src/utils/supabase/*"],
+      "@/ai-elements/*": ["src/components/ai-elements/*"],
+      "@/components/ui/*" : ["components/ui/*"],
+      "@/lib/utils": ["src/app/lib/utils"]
     },
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -32,13 +31,6 @@
     ],
     "strictNullChecks": true
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

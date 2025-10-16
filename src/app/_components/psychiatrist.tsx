@@ -22,28 +22,32 @@ import { Button } from "@/components/ui/button";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useState } from "react";
-import { sendJournal, chatPsych } from "@lib/chat-ai";
+import { Loader } from "@/ai-elements/loader";
 
 // model ollama name Psychotherapy-LLM_PsychoCounsel-Llama3-8B-GGUF:Q4_K_M
-export default function Psych() {
+export default function Psych({ journalEntry }: { journalEntry: string }) {
   const { messages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({
       api: `/api/chat`,
     }),
   });
+
   const [input, setInput] = useState("");
 
   const handleSubmit = (message: PromptInputMessage) => {
     const hasText = Boolean(message.text);
-
     if (!hasText) {
       return;
     }
-
     sendMessage({
       text: message.text || "Sent with attachments",
       files: message.files,
     });
+    setInput("");
+  };
+
+  const handleJournalSubmit = () => {
+    sendMessage({ text: journalEntry });
     setInput("");
   };
 
@@ -64,7 +68,7 @@ export default function Psych() {
                     <MessageContent>
                       {message.parts.map((part, i) => {
                         switch (part.type) {
-                          case "text": // we don't use any reasoning or tool calls in this example
+                          case "text":
                             return (
                               <Response key={`${message.id}-${i}`}>
                                 {part.text}
@@ -78,6 +82,7 @@ export default function Psych() {
                   </Message>
                 ))
               )}
+              {status === "submitted" && <Loader />}
             </ConversationContent>
             <ConversationScrollButton />
           </Conversation>
@@ -99,7 +104,7 @@ export default function Psych() {
 
             <PromptInputToolbar>
               <Button
-                onClick={() => {}}
+                onClick={handleJournalSubmit}
                 className="absolute bottom-1 right-15 px-1  text-sm"
               >
                 <span>Read my journal</span>

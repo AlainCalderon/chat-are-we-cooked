@@ -26,7 +26,7 @@ export default async function JournalPage({
         </article>
 
         <div className="col-span-4 w-full px-4">
-          <Psych/>
+          <Psych journalEntry={journalData![0].user_entry}/>
         </div>
 
       </div>

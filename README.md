@@ -6,3 +6,4 @@
 - Deployed using **vercel**
 - Uses custom tensor model from hugging face as pychiatrist for chatbot.
 - Uses my local instance of **Ollama** for api calling 
+- Deployed / production instance will use ngrok for its api call since the ollama / ai model instance only exists on my local machine ( will have to use ngrok http 11434 --host-header="localhost:11434" ).

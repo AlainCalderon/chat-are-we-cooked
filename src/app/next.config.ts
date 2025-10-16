@@ -3,7 +3,7 @@ module.exports = {
     return [
       {
         source: '/api/chat',
-        destination: process.env.OLLAMA_CHAT,
+        destination: `${process.env.OLLAMA_CHAT}/api/chat/:path*`,
       },
       {
         source: '/api/generate',
